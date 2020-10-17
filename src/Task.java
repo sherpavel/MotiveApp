@@ -1,7 +1,7 @@
 public class Task {
 
   private String name;
-  private String  taskSize;
+  private String taskSize;
 
 
   public Task(String name, String taskSize) {

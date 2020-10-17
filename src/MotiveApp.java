@@ -13,35 +13,46 @@ public class MotiveApp {
     int pointGoal = 0;
     int totalPoints = 0;
 
-//    ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
-    Task[] taskList = new Task[numTasks];
+    ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
+    int[] completedTaskIdx = new int[numTasks];
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
-      File file = new File("./data/tasks.dat");
-      sc = new Scanner(file);
+      sc = new Scanner(new File("src/data/tasks.dat"));
     }
     catch (FileNotFoundException e){
       System.out.println("File not found");
     }
+
     // Read the data file
     for(int i = 0; sc.hasNextLine(); i++){
       String line = sc.nextLine();
-      String[] lineSplit = line.split(",");
+      String[] lineSplit = line.split(", ");
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
       Task newTask = new Task(name,taskSize);
-      taskList[i] = newTask;
+      taskList.add(newTask);
     }
     sc.close();
 
-    while (tasksLeft) {
-      // Output a task for the person to do at specific times
 
-
-      // If they finished the task then remove it from the list and add points
-//      totalPoints += taskList.get( ).getPointValue();
-      tasksLeft = false;
+    for (Task task : taskList ) {
+        System.out.println(task.getName());
+        System.out.println(task.getPointValue());
     }
+
+    // Turn incomplete tasks into completed tasks
+
+    // Calculate the number of points a person has earned
+
+    // Get indexes of completed tasks
+
+
+
+
+
+
   }
+
+
 }
