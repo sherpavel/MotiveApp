@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class MainPanel extends JPanel {
-    ArrayList<JLabel>
+//    ArrayList<JLabel>
 
     public MainPanel(Task[] tasks) {
 

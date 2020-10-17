@@ -17,7 +17,7 @@ public class MotiveApp {
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
-      File file = new File("./data/tasks.dat");
+      File file = new File("src/data/tasks.dat");
       sc = new Scanner(file);
     }
     catch (FileNotFoundException e){
@@ -34,21 +34,14 @@ public class MotiveApp {
     }
     sc.close();
 
-    Window.startWindow(taskList);
+//    Window.startWindow(taskList);
 
 //    int[] completedTasks = new int[numTasks];
-//    for(int i =0; i < taskList.length; i++){
-//      if(taskList.get(i).getCompleted()){
-//        completedTasks
-//      }
-//    }
-    while (tasksLeft) {
-      // Output a task for the person to do at specific times
-
-
-      // If they finished the task then remove it from the list and add points
-//      totalPoints += taskList.get( ).getPointValue();
-      tasksLeft = false;
+    ArrayList<Integer> completedTasks = new ArrayList<Integer>(numTasks);
+    for(Task task: taskList){
+      if(task.getCompleted()){
+        completedTasks.add(taskList.indexOf(task));
+      }
     }
   }
 }
