@@ -13,8 +13,7 @@ public class MotiveApp {
     int pointGoal = 0;
     int totalPoints = 0;
 
-//    ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
-    Task[] taskList = new Task[numTasks];
+    ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
@@ -31,12 +30,18 @@ public class MotiveApp {
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
       Task newTask = new Task(name,taskSize);
-      taskList[i] = newTask;
+      taskList.add(newTask);
     }
     sc.close();
 
     Window.startWindow(taskList);
 
+//    int[] completedTasks = new int[numTasks];
+//    for(int i =0; i < taskList.length; i++){
+//      if(taskList.get(i).getCompleted()){
+//        completedTasks
+//      }
+//    }
     while (tasksLeft) {
       // Output a task for the person to do at specific times
 
