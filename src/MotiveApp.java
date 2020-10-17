@@ -3,8 +3,6 @@ import java.util.*;
 import java.io.*;
 
 public class MotiveApp {
-
-
   public static void main(String[] args) {
     //Window.startWindow(800, 800);
 
@@ -15,7 +13,8 @@ public class MotiveApp {
     int pointGoal = 0;
     int totalPoints = 0;
 
-    List<Task> taskList = new ArrayList<Task>(numTasks);
+//    ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
+    Task[] taskList = new Task[numTasks];
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
@@ -26,12 +25,13 @@ public class MotiveApp {
       System.out.println("File not found");
     }
     // Read the data file
-    while(sc.hasNextLine()){
+    for(int i = 0; sc.hasNextLine(); i++){
       String line = sc.nextLine();
       String[] lineSplit = line.split(",");
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
-      taskList.add(new Task(name, taskSize));
+      Task newTask = new Task(name,taskSize);
+      taskList[i] = newTask;
     }
     sc.close();
 
@@ -43,6 +43,5 @@ public class MotiveApp {
 //      totalPoints += taskList.get( ).getPointValue();
       tasksLeft = false;
     }
-
   }
 }
