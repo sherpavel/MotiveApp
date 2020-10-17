@@ -1,28 +1,50 @@
 package data;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 
 public class Settings {
-    String filename;
-    BufferedReader fileReader;
-    HashMap<String, String> settings;
+    static Settings settingsObject;
+    static String filename;
+    static BufferedReader fileReader;
+    static HashMap<String, String> settingsMap;
 
-    public Settings(String filename) throws FileNotFoundException {
-        if (this.filename.equals(filename))
-            return;
-        this.filename = filename;
-        fileReader = new BufferedReader(new FileReader(filename));
-        String line;
+    public static Settings getInstance() {
+        if (settingsObject == null) {
+            settingsObject = new Settings();
+        }
+        return settingsObject;
+    }
+
+    private Settings() {
+        settingsMap = new HashMap<>();
+        filename = "src" + File.separator + "data" + File.separator + "settings.dat";
         try {
+            fileReader = new BufferedReader(new FileReader(filename));
+            String line;
             while ((line = fileReader.readLine()) != null) {
-
+                String[] map = line.split(":");
+                String key = map[0];
+                String value = map[1];
+                settingsMap.put(key, value);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getValue(String key) {
+        if (!settingsMap.containsKey(key))
+            throw new IllegalArgumentException("No such setting found");
+        return settingsMap.get(key);
+    }
+
+    public void setValue(String key, String value) {
+        if (!settingsMap.containsKey(key))
+            throw new IllegalArgumentException("No such setting found");
+        settingsMap.replace(key, value);
+    }
+
+    public void saveSettings() {
     }
 }
