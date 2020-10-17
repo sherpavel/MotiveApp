@@ -2,15 +2,21 @@ public class Task {
 
   private String name;
   private String taskSize;
+  private boolean completed;
 
 
   public Task(String name, String taskSize) {
     this.name = name;
     this.taskSize = taskSize;
+    this.completed = false;
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public void setCompleted(boolean bool){
+    this.completed = bool;
   }
 
 //User asses how large/significant the task is assigned Small, Medium, and Large
@@ -22,4 +28,6 @@ public class Task {
       default -> 0;
     };
   }
+
+
 }
