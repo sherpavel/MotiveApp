@@ -1,5 +1,5 @@
 # MotiveApp
-During the COVID_19 pandemic, many students found it increasingly difficult to find motivation 
+During the COVID-19 pandemic, many students found it increasingly difficult to find motivation 
 to complete both everyday tasks and schoolwork. The Motive App is designed for students, working professionals,
 and everyone in between to help them find motivation to complete their daily tasks and improve 
 productivity.
