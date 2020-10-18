@@ -34,7 +34,7 @@ public class MotiveApp {
     }
     sc.close();
 
-//    Window.startWindow(taskList);
+    Window.startWindow(taskList);
 
 //    int[] completedTasks = new int[numTasks];
     ArrayList<Integer> completedTasks = new ArrayList<Integer>(numTasks);

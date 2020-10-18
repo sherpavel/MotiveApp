@@ -10,19 +10,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class Window {
     static JFrame frame;
-    static Color mainColor = new Color(15, 15, 30);
+    static Color mainColor = new Color(15, 15, 15);
     static Color notMainColor = new Color(225, 225, 225);
     static JButton currentTab;
 
-    public static void startWindow(Task[] tasks) {
+    public static void startWindow(ArrayList<Task> tasks) {
         Settings settings = Settings.getInstance();
         int width = Integer.parseInt(settings.getValue("windowWidth"));
         int height = Integer.parseInt(settings.getValue("windowHeight"));
         frame = new JFrame("MotiveApp");
-        frame.setPreferredSize(new Dimension(width, height));
+//        frame.setPreferredSize(new Dimension(width, height));
         frame.setResizable(false);
         frame.setUndecorated(true);
 
