@@ -4,16 +4,10 @@ import data.Settings;
 import task.Task;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MainPanel extends JPanel {
@@ -80,7 +74,14 @@ public class MainPanel extends JPanel {
                 updateList();
             });
             this.add(completeButton);
+
             i++;
+        }
+
+        for (int e = visualTasks.size(); e < 6; e++) {
+            this.add(new JLabel());
+            this.add(new JLabel());
+            this.add(new JLabel());
         }
     }
 }

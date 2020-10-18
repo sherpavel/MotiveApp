@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class Window {
     static JFrame frame;
-    static Color mainColor = new Color(15, 15, 15);
-    static Color notMainColor = new Color(225, 225, 225);
+    static Color mainColor = new Color(40, 40, 40);
+    static Color notMainColor = new Color(240, 240, 240);
     static JButton currentTab;
 
     public static void startWindow(ArrayList<Task> tasks) {
@@ -54,9 +54,6 @@ public class Window {
         JButton completedButton = plainButton("Completed");
         completedButton.addMouseListener(mouseAdapter);
         completedButton.addMouseMotionListener(mouseAdapter);
-        JButton settingsButton = plainButton("Settings");
-        settingsButton.addMouseListener(mouseAdapter);
-        settingsButton.addMouseMotionListener(mouseAdapter);
         JButton exitButton = plainButton("Exit");
         exitButton.addActionListener(e -> {
             frame.setVisible(false);
@@ -66,13 +63,12 @@ public class Window {
 
         currentTab = tasksButton;
         toggleButton(currentTab);
-        toggleButton(exitButton);
+//        toggleButton(exitButton);
 
         JPanel navPanel = new JPanel();
-        navPanel.setLayout(new GridLayout(1, 4));
+        navPanel.setLayout(new GridLayout(1, 3));
         navPanel.add(tasksButton);
         navPanel.add(completedButton);
-        navPanel.add(settingsButton);
         navPanel.add(exitButton);
 
         MainPanel mainPanel = new MainPanel(tasks);
