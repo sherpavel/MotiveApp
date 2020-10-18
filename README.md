@@ -23,10 +23,11 @@ These are separated into small, medium, and large tasks.
 ### Interactive Interface
 The Motive App has an interactive user interface designed with Java Swing
 ### Java Backend
-The Motive App has a Java backend that allows for 
+The Motive App has a Java backend that interacts with the UI
 
 ## Contact
 Created by:
-* [@robgan](https://www.linkedin.com/in/robert-gan-011651173/)
-* [@sherpavel](https://www.linkedin.com/in/sherpavel/)
-* [@vikramnaren]()
+* Robert Gan - [@robgan](https://www.linkedin.com/in/robert-gan-011651173/)
+* Pavel Sherstyuk - [@sherpavel](https://www.linkedin.com/in/sherpavel/)
+* Vikram Narendar - [@vikramnaren](https://www.linkedin.com/in/vikramnarendar/)
+* Brian Park - [@briancpark](https://www.linkedin.com/in/brianparkberkeley/)
