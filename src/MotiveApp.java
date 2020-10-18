@@ -12,35 +12,35 @@ public class MotiveApp {
     int totalPoints = 0;
     ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
     // Get user input and provide tasks based on what the person using the app needs
-//    Scanner sc = new Scanner(System.in);
-
+    //    Scanner sc = new Scanner(System.in);
 
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
       File file = new File("src/data/tasks.dat");
       sc = new Scanner(file);
-    }
-    catch (FileNotFoundException e){
+    } catch (FileNotFoundException e) {
       System.out.println("File not found");
     }
     // Read the data file
-    for(int i = 0; sc.hasNextLine(); i++){
+    for (int i = 0; sc.hasNextLine(); i++) {
       String line = sc.nextLine();
+      if(line == null){
+        continue;
+      }
       String[] lineSplit = line.split(",");
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
-      Task newTask = new Task(name,taskSize);
+      Task newTask = new Task(name, taskSize);
       taskList.add(newTask);
     }
     sc.close();
 
     Window.startWindow(taskList);
 
-//    int[] completedTasks = new int[numTasks];
     ArrayList<Integer> completedTasks = new ArrayList<Integer>(numTasks);
-    for(Task task: taskList){
-      if(task.getCompleted()){
+    for (Task task : taskList) {
+      if (task.getCompleted()) {
         completedTasks.add(taskList.indexOf(task));
         totalPoints += task.getPointValue();
       }
