@@ -8,12 +8,13 @@ public class MotiveApp {
 
     // We can take this value as an input
     int numTasks = 10;
-    boolean tasksLeft = true;
 
-    int pointGoal = 0;
     int totalPoints = 0;
-
     ArrayList<Task> taskList = new ArrayList<Task>(numTasks);
+    // Get user input and provide tasks based on what the person using the app needs
+//    Scanner sc = new Scanner(System.in);
+
+
     // Read tasks from the .dat file and create and add the tasks to the taskList
     Scanner sc = null;
     try {
@@ -26,7 +27,7 @@ public class MotiveApp {
     // Read the data file
     for(int i = 0; sc.hasNextLine(); i++){
       String line = sc.nextLine();
-      String[] lineSplit = line.split(", ");
+      String[] lineSplit = line.split(",");
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
       Task newTask = new Task(name,taskSize);
@@ -41,6 +42,7 @@ public class MotiveApp {
     for(Task task: taskList){
       if(task.getCompleted()){
         completedTasks.add(taskList.indexOf(task));
+        totalPoints += task.getPointValue();
       }
     }
   }
