@@ -27,6 +27,6 @@ The Motive App has a Java backend that allows for
 
 ## Contact
 Created by:
-* [@robgan] (https://www.linkedin.com/in/robert-gan-011651173/)
-* [@sherpavel] ()
-* [@vikramnaren] ()
+* [@robgan](https://www.linkedin.com/in/robert-gan-011651173/)
+* [@sherpavel](https://www.linkedin.com/in/sherpavel/)
+* [@vikramnaren]()
