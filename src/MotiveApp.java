@@ -26,7 +26,7 @@ public class MotiveApp {
     // Read the data file
     for(int i = 0; sc.hasNextLine(); i++){
       String line = sc.nextLine();
-      String[] lineSplit = line.split(",");
+      String[] lineSplit = line.split(", ");
       String name = lineSplit[0];
       String taskSize = lineSplit[1];
       Task newTask = new Task(name,taskSize);
