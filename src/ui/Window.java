@@ -48,12 +48,21 @@ public class Window {
             }
         };
 
+        MainPanel mainPanel = new MainPanel(tasks);
+        MyPage myPage = new MyPage(tasks);
+
         JButton tasksButton = plainButton("Tasks");
         tasksButton.addMouseListener(mouseAdapter);
         tasksButton.addMouseMotionListener(mouseAdapter);
-        JButton completedButton = plainButton("Completed");
-        completedButton.addMouseListener(mouseAdapter);
-        completedButton.addMouseMotionListener(mouseAdapter);
+        tasksButton.addActionListener(e -> {
+            //frame.setContentPane(mainPanel);
+        });
+        JButton mypageButton = plainButton("My Page");
+        mypageButton.addMouseListener(mouseAdapter);
+        mypageButton.addMouseMotionListener(mouseAdapter);
+        mypageButton.addActionListener(e -> {
+            //frame.setContentPane(myPage);
+        });
         JButton exitButton = plainButton("Exit");
         exitButton.addActionListener(e -> {
             frame.setVisible(false);
@@ -68,10 +77,8 @@ public class Window {
         JPanel navPanel = new JPanel();
         navPanel.setLayout(new GridLayout(1, 3));
         navPanel.add(tasksButton);
-        navPanel.add(completedButton);
+        navPanel.add(mypageButton);
         navPanel.add(exitButton);
-
-        MainPanel mainPanel = new MainPanel(tasks);
 
         Container contentPanel = frame.getContentPane();
         contentPanel.setLayout(new BorderLayout());
