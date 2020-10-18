@@ -4,10 +4,16 @@ import data.Settings;
 import task.Task;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MainPanel extends JPanel {
@@ -32,6 +38,8 @@ public class MainPanel extends JPanel {
 
     private void updateList() {
         int i = 0;
+        visualTasks.clear();
+        this.removeAll();
         while (visualTasks.size() <= 5 && i < tasks.size()) {
             if (tasks.get(i).getCompleted()) {
                 i++;
@@ -48,19 +56,30 @@ public class MainPanel extends JPanel {
             SimpleAttributeSet center = new SimpleAttributeSet();
             StyleConstants.setAlignment(center, StyleConstants.ALIGN_JUSTIFIED);
             doc.setParagraphAttributes(0, doc.getLength(), center, false);
+            textPane.setBackground(Window.mainColor);
+            textPane.setForeground(Window.notMainColor);
             this.add(textPane);
 
             JTextPane scorePane = new JTextPane();
-            scorePane.setText(String.valueOf(tasks.get(i).getPointValue()));
+            scorePane.setText(tasks.get(i).getPointValue() + " points");
             scorePane.setEditable(false);
             scorePane.setFont(new Font("Arial", Font.PLAIN, 18));
             doc = scorePane.getStyledDocument();
             center = new SimpleAttributeSet();
             StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
             doc.setParagraphAttributes(0, doc.getLength(), center, false);
+            scorePane.setBackground(Window.mainColor);
+            scorePane.setForeground(Window.notMainColor);
             this.add(scorePane);
 
-            this.add(new JLabel());
+            JButton completeButton = Window.plainButton("Completed!");
+            Window.toggleButton(completeButton);
+            int finalI = i;
+            completeButton.addActionListener(e -> {
+                tasks.get(finalI).setCompleted(true);
+                updateList();
+            });
+            this.add(completeButton);
             i++;
         }
     }
